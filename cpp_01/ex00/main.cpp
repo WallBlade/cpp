@@ -5,32 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/21 18:34:09 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/05/25 19:38:05 by zel-kass         ###   ########.fr       */
+/*   Created: 2023/05/29 12:57:28 by zel-kass          #+#    #+#             */
+/*   Updated: 2023/05/29 14:05:07 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
-#include "Contact.hpp"
-#include <iostream>
+#include "Zombie.hpp"
 
-int	main() {
-	Phonebook pb;
-	std::string	input;
-	std::cout << "Welcome to my awesome Phonebook !" << std::endl;
-	while (1)
-	{
-		std::cin.clear();
-		std::cout << "Enter a command (ADD, SEARCH or EXIT): ";
-		if (!(std::getline(std::cin, input)))
-			break ;
-		if (input == "ADD")
-			pb.addContact();
-		else if (input == "SEARCH")
-			pb.searchContact();
-		else if (input == "EXIT")
-			break ;
-		else
-			std::cout << "Wrong input" << std::endl;
-	}
+int main() {
+    Zombie* z1 = newZombie("Franck");
+    z1->announce();
+
+    randomChump("Bernard");
+
+    delete z1;
+
+    return 0;
 }

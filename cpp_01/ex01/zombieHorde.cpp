@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 17:56:55 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/05/25 18:47:58 by zel-kass         ###   ########.fr       */
+/*   Created: 2023/05/29 14:11:06 by zel-kass          #+#    #+#             */
+/*   Updated: 2023/05/29 16:58:48 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cstring>
+#include "Zombie.hpp"
 
-int	main(int argc, char **argv)
-{
-	if (argc >= 2)
-	{
-		for (int i = 0; i < (int)strlen(argv[1]); i++)
-			putchar(toupper(argv[1][i]));
-		std::cout << std::endl;
-	}
-	else
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	return (0);
+Zombie* zombieHorde(int N, std::string name) {
+	Zombie	*horde = new Zombie[N];
+
+	for (int i = 0; i < N; i++)
+		horde[i].setName(name);
+	return horde;
 }

@@ -1,14 +1,14 @@
-SRC		=	Account.cpp tests.cpp \
+SRC		=	main.cpp \
 
-OBJ		=	$(SRC:.cpp=.o)
+OBJ		=	${SRC:.cpp=.o}
 
 CC		=	c++
 RM		=	rm -rf
-CFAGS	=	-Wall -Werror -Wextra -std=c++98
+CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 
-NAME	=	Account
+NAME	=	pointer_x_ref
 
-all:		$(NAME)
+all		=	${NAME}
 
 $(NAME):	$(OBJ)
 				$(CC) $(OBJ) -o $(NAME)
