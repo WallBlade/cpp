@@ -6,48 +6,34 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 21:17:59 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/11 16:08:49 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/11 18:10:27 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main (void) {
-    ClapTrap robinson("Robinson");
-    ClapTrap dyson("Dyson");
+    ClapTrap Test;
+    std::cout << std::endl;
+    DiamondTrap apple("Apple");
+    std::cout << std::endl;
+    DiamondTrap windows("Windows");
 
     std::cout << std::endl;
 
-    robinson.attack("Mauricio");
-    robinson.takeDamage(20);
-    robinson.beRepaired(10);
-    dyson.attack("Jules");
-    dyson.attack("Victoria");
-    dyson.attack("Neymar");
-    dyson.attack("Mbappe");
-    dyson.attack("Messi");
-    dyson.takeDamage(2);
-    dyson.beRepaired(10);
-
-    std::cout << std::endl;
-
-    ScavTrap roland("Roland");
-    ScavTrap pogba("Pogba");
-
-    std::cout << std::endl;
-
-    roland.attack("Mauricio");
-    roland.takeDamage(20);
-    roland.beRepaired(10);
-    pogba.attack("Jules");
-    pogba.attack("Victoria");
-    pogba.attack("Neymar");
-    pogba.attack("Mbappe");
-    pogba.attack("Messi");
-    pogba.takeDamage(2);
-    pogba.beRepaired(10);
-    pogba.guardGate();
-    roland.guardGate();
+    apple.attack("Mauricio");
+    apple.takeDamage(20);
+    apple.beRepaired(10);
+    windows.attack("Jules");
+    windows.attack("Victoria");
+    windows.attack("Neymar");
+    windows.attack("Mbappe");
+    windows.attack("Messi");
+    windows.takeDamage(2);
+    windows.beRepaired(10);
+    windows.guardGate();
+    apple.highFivesGuys();
+    apple.whoAmI();
 
     std::cout << std::endl;
 }

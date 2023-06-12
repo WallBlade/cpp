@@ -1,4 +1,4 @@
-SRC		=	main.cpp ClapTrap.cpp ScavTrap.cpp \
+SRC		=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp \
 
 OBJ		=	${SRC:.cpp=.o}
 
@@ -6,7 +6,7 @@ CC		=	c++
 RM		=	rm -rf
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 
-NAME	=	scavtrap
+NAME	=	diamondtrap
 
 all		=	${NAME}
 

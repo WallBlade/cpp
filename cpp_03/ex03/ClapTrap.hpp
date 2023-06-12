@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 20:43:28 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/11 15:38:00 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/11 18:45:08 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ class ClapTrap {
 		ClapTrap	&operator=(const ClapTrap &cpy);
 		~ClapTrap();
 			/* --Member-functions-- */
-		void	attack(const std::string &target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
-	private:
+		virtual void	attack(const std::string &target);
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
+	protected:
 		std::string		_name;
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;

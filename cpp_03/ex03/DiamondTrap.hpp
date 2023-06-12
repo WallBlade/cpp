@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/10 20:43:28 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/11 15:38:00 by zel-kass         ###   ########.fr       */
+/*   Created: 2023/06/11 17:13:15 by zel-kass          #+#    #+#             */
+/*   Updated: 2023/06/11 18:42:42 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CLAPTRAP_HPP__
-#define __CLAPTRAP_HPP__
+#ifndef __DIAMONDTRAP_HPP__
+#define __DIAMONDTRAP_HPP__
 
-#include <iostream>
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class ClapTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {
 	public:	/* --Constructors-- */
-		ClapTrap();
-		ClapTrap(std::string name);
-		ClapTrap(ClapTrap const &cpy);
-		ClapTrap	&operator=(const ClapTrap &cpy);
-		~ClapTrap();
+		DiamondTrap();
+		DiamondTrap(std::string name);
+		DiamondTrap(const DiamondTrap &cpy);
+		DiamondTrap	&operator=(const DiamondTrap &cpy);
+		~DiamondTrap();
 			/* --Member-functions-- */
-		void	attack(const std::string &target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void			whoAmI(void);
+		virtual void	attack(const std::string &target);
 	private:
-		std::string		_name;
-		unsigned int	_hitPoints;
-		unsigned int	_energyPoints;
-		unsigned int	_attackDamage;
+		std::string	_name;
 };
 
 #endif
