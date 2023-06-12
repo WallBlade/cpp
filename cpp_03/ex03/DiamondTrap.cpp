@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:13:13 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/12 17:12:31 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/12 22:30:28 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ void	DiamondTrap::attack(const std::string &target) {
 }
 
 DiamondTrap::~DiamondTrap() {
-	std::cout << "ScavTrap " << this->_name << " has been destroyed" << std::endl;
+	std::cout << "DiamondTrap " << this->_name << " has been destroyed" << std::endl;
 }

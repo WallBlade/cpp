@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 21:50:20 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/11 18:33:31 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/12 22:39:36 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ScavTrap::ScavTrap() {
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
-	std::cout << "Default ScavTrap created" << std::endl;
+	std::cout << "ScavTrap : " << _name << "Default FragTrap created" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) {

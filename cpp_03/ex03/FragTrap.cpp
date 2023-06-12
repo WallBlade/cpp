@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 16:49:50 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/12 17:08:15 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/12 22:39:09 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ FragTrap::FragTrap() {
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
-	std::cout << "FragTrap : " << "Default FragTrap created" << std::endl;
+	std::cout << "FragTrap : " << _name << "Default FragTrap created" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) {
@@ -29,14 +29,6 @@ FragTrap::FragTrap(std::string name) {
 	std::cout << "FragTrap : " << this->_name << " has been created" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &cpy) {
-	this->_name = cpy._name;
-	this->_hitPoints = cpy._hitPoints;
-	this->_energyPoints = cpy._energyPoints;
-	this->_attackDamage = cpy._attackDamage;
-	std::cout << "FragTrap : " << this->_name << " copy has been created" << std::endl;
-}
-
 FragTrap	&FragTrap::operator=(const FragTrap &cpy) {
 	this->_name = cpy._name;
 	this->_hitPoints = cpy._hitPoints;
@@ -44,6 +36,14 @@ FragTrap	&FragTrap::operator=(const FragTrap &cpy) {
 	this->_attackDamage = cpy._attackDamage;
 	
 	return (*this);
+}
+
+FragTrap::FragTrap(const FragTrap &cpy) {
+	this->_name = cpy._name;
+	this->_hitPoints = cpy._hitPoints;
+	this->_energyPoints = cpy._energyPoints;
+	this->_attackDamage = cpy._attackDamage;
+	std::cout << "FragTrap : " << this->_name << " copy has been created" << std::endl;
 }
 
 void	FragTrap::attack(const std::string &target) {

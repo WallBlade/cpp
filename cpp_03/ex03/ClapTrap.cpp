@@ -6,13 +6,19 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 20:47:45 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/11 16:48:48 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/12 22:39:16 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() {}
+ClapTrap::ClapTrap() {
+	_name = "Default";
+	_hitPoints = 100;
+	_energyPoints = 100;
+	_attackDamage = 30;
+	std::cout << "ClapTrap : " << _name << "Default FragTrap created" << std::endl;
+}
 
 ClapTrap::ClapTrap(const std::string name) : _name(name) {
 	_hitPoints = 10;
