@@ -6,13 +6,13 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:13:13 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/11 18:39:26 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/12 17:12:31 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap(), _name(ClapTrap::_name + "_clap_name") {
+DiamondTrap::DiamondTrap() : ClapTrap(), _name(ClapTrap::_name + "_clap_name") {
 	this->_hitPoints = FragTrap::_hitPoints;
 	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_attackDamage = FragTrap::_attackDamage;

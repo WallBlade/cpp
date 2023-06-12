@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 16:49:50 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/11 18:27:10 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/12 17:08:15 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ FragTrap::FragTrap() {
 FragTrap::FragTrap(std::string name) {
 	this->_name = name;
 	this->_hitPoints = 100;
-	this->_energyPoints = 100;
+	if (!this->_energyPoints)
+		this->_energyPoints = 100;
 	this->_attackDamage = 30;
 	std::cout << "FragTrap : " << this->_name << " has been created" << std::endl;
 }

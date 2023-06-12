@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 21:17:59 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/10 21:39:46 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/12 17:00:13 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ int main (void) {
     dyson.attack("Neymar");
     dyson.attack("Mbappe");
     dyson.attack("Messi");
+    // dyson.takeDamage(2);
+    dyson.takeDamage(200);
+	dyson.attack("ew");
     dyson.takeDamage(2);
-    dyson.beRepaired(10);
+    // dyson.beRepaired(10);
 
 }

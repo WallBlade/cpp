@@ -6,7 +6,7 @@ CC		=	c++
 RM		=	rm -rf
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 
-NAME	=	scavtrap
+NAME	=	fragtrap
 
 all		=	${NAME}
 
