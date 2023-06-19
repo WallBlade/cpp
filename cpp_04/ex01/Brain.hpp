@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 23:13:12 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/19 17:17:56 by zel-kass         ###   ########.fr       */
+/*   Created: 2023/06/13 14:00:30 by zel-kass          #+#    #+#             */
+/*   Updated: 2023/06/19 16:15:07 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CAT_HPP__
-#define __CAT_HPP__
+#ifndef __BRAIN_HPP__
+#define __BRAIN_HPP__
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
 
-class Cat : public Animal {
+class Brain {
 	public:	/*--Constructors--*/
-		Cat();
-		Cat(const Cat &cpy);
-		Cat	&operator=(const Cat &cpy);
-		virtual ~Cat();
+		Brain();
+		Brain(const Brain &cpy);
+		Brain	&operator=(const Brain &cpy);
+		~Brain();
 			/*--Member-functions--*/
-		virtual void	makeSound(void) const;
-		void			setBrainIdea(std::string idea, int index);
-		std::string		getBrainIdea(int index);
+		void		setIdea(std::string idea, int index);
+		std::string	getIdea(int index);
 	private:
-		Brain	*_dumb;
+		std::string	_ideas[100];
 };
 
 #endif

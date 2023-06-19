@@ -6,14 +6,14 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 22:50:03 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/12 23:35:43 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/19 17:40:22 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 Animal::Animal() : _type("default") {
-	std::cout << "Default Animal constructor called" << std::endl;
+	std::cout << "Animal : Default constructor called" << std::endl;
 }
 
 Animal::Animal(std::string type) : _type(type) {

@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 23:14:29 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/13 00:15:15 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/19 17:47:00 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,27 @@
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
+	Animal	*array[10];
+	int		arraySize = 4;
+	for (int i = 0; i < arraySize; i++) {
+		if (i < arraySize / 2)
+			array[i] = new Dog();
+		else
+			array[i] = new Cat();
+	}
+	
 	std::cout << std::endl;
-	const WrongAnimal* teta = new WrongAnimal();
-	const WrongAnimal* cat = new WrongCat();
-	std::cout << cat->getType() << " " << std::endl;
-	cat->makeSound(); //will output the cat sound!
-	meta->makeSound();
+
+	for (int j = 0; j < arraySize; j++) {
+		delete (array[j]);
+	}
+
+	std::cout << std::endl;
+
+	Dog	dog = Dog();
+	dog.setBrainIdea("Deeznuts", 50);
+	Dog	dog2 = dog;
+	std::cout << dog2.getBrainIdea(50) << std::endl;
 	
 	return 0;
 }

@@ -1,24 +1,41 @@
-SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp \
+CC			:=	c++
+CPPFLAGS	:=	-Wall -Werror -Wextra -std=c++98 -MMD -MP -g3
 
-OBJ		=	${SRC:.cpp=.o}
+# Directories
+SRC_DIR 	:=	.
+OBJ_DIR 	:=	obj
 
-CC		=	c++
-RM		=	rm -rf
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98
+# Source files
+SRCS 		:=	$(wildcard $(SRC_DIR)/*.cpp)
+OBJS 		:=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
+TARGET 		:=	Brain
 
-NAME	=	animal
+# Progress bar function
+define progress_bar
+	@echo "\033[1;34mCompiling:\033[0m\n"
+	@$(1)
+	@sleep 0.2
+	@echo "\033[1;32mDone\033[0m"
+endef
 
-all		=	${NAME}
+# Targets
+all: $(TARGET)
 
-$(NAME):	$(OBJ)
-				$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+$(TARGET): $(OBJS)
+	$(call progress_bar,$(CC) $^ -o $(BIN_DIR)$@)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	@$(CC) $(CPPFLAGS) -c $< -o $@
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
 clean:
-				$(RM) $(OBJ)
+	rm -rf $(OBJ_DIR)
 
-fclean:		clean
-				$(RM) $(NAME)
+fclean: clean
+	rm -f $(TARGET)
 
-re:			fclean $(NAME)
+re: fclean all
 
-.PHONY:		all clean fclean re
+.PHONY: all clean fclean re
