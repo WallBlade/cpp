@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 23:45:25 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/20 14:59:42 by zel-kass         ###   ########.fr       */
+/*   Created: 2023/06/12 23:04:03 by zel-kass          #+#    #+#             */
+/*   Updated: 2023/06/20 15:26:11 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __WRONGANIMAL_HPP__
-#define __WRONGANIMAL_HPP__
+#ifndef __DOG_HPP__
+#define __DOG_HPP__
 
-#include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class WrongAnimal {
+class Dog : public Animal {
 	public:	/*--Constructors--*/
-		WrongAnimal();
-		WrongAnimal(const std::string type);
-		WrongAnimal(const WrongAnimal &cpy);
-		WrongAnimal	&operator=(const WrongAnimal &cpy);
-		virtual ~WrongAnimal();
+		Dog();
+		Dog(const Dog &cpy);
+		Dog	&operator=(const Dog &cpy);
+		~Dog();
 			/*--Member-functions--*/
-		std::string		getType() const;
-		void			makeSound(void) const;
-	protected:
-		std::string	_type;
+		virtual void	makeSound(void) const;
+		void			setBrainIdea(std::string idea, int index);
+		std::string		getBrainIdea(int index);
+	private:
+		Brain	*_dumb;
 };
 
 #endif

@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 23:45:25 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/20 14:59:42 by zel-kass         ###   ########.fr       */
+/*   Created: 2023/06/12 22:47:12 by zel-kass          #+#    #+#             */
+/*   Updated: 2023/06/20 15:10:45 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __WRONGANIMAL_HPP__
-#define __WRONGANIMAL_HPP__
+#ifndef __ANIMAL_HPP__
+#define __ANIMAL_HPP__
 
 #include <iostream>
 
-class WrongAnimal {
+class Animal {
 	public:	/*--Constructors--*/
-		WrongAnimal();
-		WrongAnimal(const std::string type);
-		WrongAnimal(const WrongAnimal &cpy);
-		WrongAnimal	&operator=(const WrongAnimal &cpy);
-		virtual ~WrongAnimal();
+		Animal();
+		Animal(const std::string type);
+		Animal(const Animal &cpy);
+		Animal	&operator=(const Animal &cpy);
+		virtual ~Animal() = 0;
 			/*--Member-functions--*/
 		std::string		getType() const;
-		void			makeSound(void) const;
+		virtual void	makeSound(void) const;
 	protected:
 		std::string	_type;
 };
