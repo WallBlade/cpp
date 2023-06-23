@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 16:07:24 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/22 17:19:28 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:32:49 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "ICharacter.hpp"
 #include <iostream>
+
+class ICharacter;
 
 class AMateria {
 	public:

@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:50:34 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/22 17:52:36 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:33:41 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Ice	&Ice::operator=(Ice const &cpy) {
 	return (*this);
 }
 
-Ice::Ice(Ice const &cpy) {
+Ice::Ice(Ice const &cpy) : AMateria("ice") {
 	*this = cpy;
 	std::cout << "Ice : " << _type << " materia has been copied" << std::endl;
 }
@@ -32,7 +32,7 @@ Ice	*Ice::clone() const {
 }
 
 void	Ice::use(ICharacter &target) {
-	std::cout << "Ice : '* shoot an ice bolt at " << &target << std::endl;
+	std::cout << "Ice : '* shoot an ice bolt at " << target.getName() << std::endl;
 }
 
 Ice::~Ice() {

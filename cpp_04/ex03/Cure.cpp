@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:30:08 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/22 17:52:50 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:33:21 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Cure	&Cure::operator=(Cure const &cpy) {
 	return (*this);
 }
 
-Cure::Cure(Cure const &cpy) {
+Cure::Cure(Cure const &cpy) : AMateria("cure") {
 	*this = cpy;
 	std::cout << "Cure : " << _type << " materia has been copied" << std::endl;
 }
