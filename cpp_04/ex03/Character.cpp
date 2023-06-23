@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 13:34:04 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/23 15:00:12 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:53:42 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ std::string const &Character::getName() const {
 
 void	Character::equip(AMateria *m) {
 	for (int i = 0; i < 4; i++) {
-		if (inventory[i] != NULL) {
+		if (inventory[i] == NULL) {
 			inventory[i] = m;
 			break ;
 		}

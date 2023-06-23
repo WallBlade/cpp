@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 23:45:25 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/13 00:07:39 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:58:16 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class WrongAnimal {
 		WrongAnimal(const std::string type);
 		WrongAnimal(const WrongAnimal &cpy);
 		WrongAnimal	&operator=(const WrongAnimal &cpy);
-		virtual ~WrongAnimal();
+		~WrongAnimal();
 			/*--Member-functions--*/
 		std::string		getType() const;
 		void	makeSound(void) const;

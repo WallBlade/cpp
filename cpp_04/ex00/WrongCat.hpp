@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 23:48:58 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/13 00:07:34 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:58:22 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class WrongCat : public WrongAnimal {
 		WrongCat();
 		WrongCat(const WrongCat &cpy);
 		WrongCat	&operator=(const WrongCat &cpy);
-		virtual ~WrongCat();
+		~WrongCat();
 			/*--Member-functions--*/
 		void	makeSound(void) const;
 };

@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 23:14:29 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/13 00:15:15 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/23 17:00:20 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ int main()
 	const WrongAnimal* cat = new WrongCat();
 	std::cout << cat->getType() << " " << std::endl;
 	cat->makeSound(); //will output the cat sound!
-	meta->makeSound();
+	teta->makeSound();
+
+	delete meta, delete j, delete i, delete teta, delete cat;
 	
 	return 0;
 }
