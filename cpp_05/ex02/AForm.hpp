@@ -1,53 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/24 14:23:35 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/26 17:30:58 by zel-kass         ###   ########.fr       */
+/*   Created: 2023/06/24 15:41:02 by zel-kass          #+#    #+#             */
+/*   Updated: 2023/06/27 15:07:03 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __BUREAUCRAT_HPP__
-#define __BUREAUCRAT_HPP__
+#ifndef __FORM_HPP__
+#define __FORM_HPP__
 
 #include <iostream>
-#include "Form.hpp"
+#include "Bureaucrat.hpp"
 
-class Form;
+class Bureaucrat;
 
-class Bureaucrat {
+class Form {
 	public:
-		Bureaucrat(const std::string &name, int grade);
-		~Bureaucrat();
+		Form();
+		Form	&operator=(const Form &cpy);
+		Form(const Form &cpy);
+		Form(const std::string name, const int sGrade, const int eGrade);
+		virtual ~Form();
+
 		class GradeTooHighException : public std::exception {
 			public:
 				GradeTooHighException() throw() {}
 				~GradeTooHighException() throw() {}
 				const char *what() const throw() {
-					return "Grade is too high";
+					return "Grade too high";
 				}
 		};
+
 		class GradeTooLowException : public std::exception {
 			public:
 				GradeTooLowException() throw() {}
 				~GradeTooLowException() throw() {}
 				const char *what() const throw() {
-					return "Grade is too low";
+					return "Grade too low";
 				}
 		};
+
+		void				setName(const std::string name);
+		void				setSignGrade(const int signGrade);
+		void				setExecGrade(const int execGrade);
+		bool				isSigned() const;
 		std::string			getName() const;
-		int					getGrade() const;
-		void				increaseGrade(int amount);
-		void				decreaseGrade(int amount);
-		void				signForm(Form &form);
+		int					getSignGrade() const;
+		int					getExecGrade() const;
+		virtual void		beSigned(Bureaucrat &john) = 0;
+		
 	private:
 		const std::string	_name;
-		int					_grade;
+		bool				_isSigned;
+		const int			_signGrade;
+		const int			_execGrade;
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat &bu);
+std::ostream& operator<<(std::ostream& os, const Form &form);
 
 #endif

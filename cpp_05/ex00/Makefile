@@ -8,7 +8,7 @@ OBJ_DIR 	:=	obj
 # Source files
 SRCS 		:=	$(wildcard $(SRC_DIR)/*.cpp)
 OBJS 		:=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
-TARGET 		:=	Form
+TARGET 		:=	Bureaucrat
 
 # Progress bar function
 define progress_bar

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:41:23 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/26 17:50:56 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:07:22 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,6 @@ int			Form::getSignGrade() const {
 
 int			Form::getExecGrade() const {
 	return this->_execGrade;
-}
-
-void		Form::beSigned(Bureaucrat &john) {
-	if (john.getGrade() <= _signGrade)
-		_isSigned = 1;
-	else
-		throw (Form::GradeTooLowException());
 }
 
 Form::~Form() {}

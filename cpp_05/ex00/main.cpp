@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/24 15:00:11 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/26 17:55:47 by zel-kass         ###   ########.fr       */
+/*   Created: 2023/06/26 15:09:05 by zel-kass          #+#    #+#             */
+/*   Updated: 2023/06/26 15:09:07 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 int main() {
 	std::cout << "----------------------------------------" << std::endl;
@@ -57,37 +56,7 @@ int main() {
 	} catch (const std::exception &e) {
 		std::cout << "Exception caught : " << e.what() << std::endl;
 	}
-	
-	std::cout << "----------------------------------------" << std::endl;
-	std::cout << std::endl;
-	std::cout << "----------------------------------------" << std::endl;
-	
-	try {
-		Bureaucrat	mooman("Mooman", 50);
-		Form		petition("Petition", 46, 1);
-		mooman.increaseGrade(5);
-		petition.beSigned(mooman);
-		mooman.signForm(petition);
-		std::cout << mooman << std::endl;
-	} catch (const std::exception &e) {
-		std::cout << "Exception caught : " << e.what() << std::endl;
-	}
-	
-	std::cout << "----------------------------------------" << std::endl;
-	std::cout << std::endl;
-	std::cout << "----------------------------------------" << std::endl;
-	
-	try {
-		Bureaucrat	booman("Booman", 42);
-		Form		petition("Contract", 20, 1);
-		booman.increaseGrade(12);
-		booman.signForm(petition);
-		petition.beSigned(booman);
-		std::cout << booman << std::endl;
-	} catch (const std::exception &e) {
-		std::cout << "Exception caught : " << e.what() << std::endl;
-	}
-	
+
 	std::cout << "----------------------------------------" << std::endl;
 	return (0);
 }

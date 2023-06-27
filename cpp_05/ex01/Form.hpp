@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:41:02 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/24 15:59:19 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/26 17:46:19 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,18 @@
 #define __FORM_HPP__
 
 #include <iostream>
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form {
 	public:
-		Form(const std::string name, bool is, const int sGrade, const int eGrade);
+		Form();
+		Form	&operator=(const Form &cpy);
+		Form(const Form &cpy);
+		Form(const std::string name, const int sGrade, const int eGrade);
 		~Form();
+
 		class GradeTooHighException : public std::exception {
 			public:
 				GradeTooHighException() throw() {}
@@ -27,6 +34,7 @@ class Form {
 					return "Grade too high";
 				}
 		};
+
 		class GradeTooLowException : public std::exception {
 			public:
 				GradeTooLowException() throw() {}
@@ -35,6 +43,16 @@ class Form {
 					return "Grade too low";
 				}
 		};
+
+		void		setName(const std::string name);
+		void		setSignGrade(const int signGrade);
+		void		setExecGrade(const int execGrade);
+		bool		isSigned() const;
+		std::string	getName() const;
+		int			getSignGrade() const;
+		int			getExecGrade() const;
+		void		beSigned(Bureaucrat &john);
+		
 	private:
 		const std::string	_name;
 		bool				_isSigned;
@@ -42,6 +60,6 @@ class Form {
 		const int			_execGrade;
 };
 
-std::ostream& operator<<(std::ostream& os)
+std::ostream& operator<<(std::ostream& os, const Form &form);
 
 #endif

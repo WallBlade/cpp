@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/24 14:23:37 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/26 17:59:00 by zel-kass         ###   ########.fr       */
+/*   Created: 2023/06/26 15:07:05 by zel-kass          #+#    #+#             */
+/*   Updated: 2023/06/26 15:07:31 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,6 @@ void	Bureaucrat::decreaseGrade(int amount) {
 	_grade += amount;
 	if (_grade > 150)
 		throw GradeTooLowException();
-}
-
-void	Bureaucrat::signForm(Form &form) {
-	if (form.isSigned())
-		std::cout << this->_name << " signed : " << form.getName() << std::endl;
-	else
-		std::cout << this->_name << " couldn't sign : " <<
-			form.getName() << " because he stuck a cucumber up his bum" << std::endl;
-
 }
 
 Bureaucrat::~Bureaucrat() {}
