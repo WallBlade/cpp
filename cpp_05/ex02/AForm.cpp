@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:41:23 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/28 18:30:38 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/29 15:52:05 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,12 @@ int			Form::getExecGrade() const {
 }
 
 void	Form::execute(Bureaucrat const &executor) {
-	
+	if (!isSigned())
+		throw FormNotSignedException();
+	else if (executor.getGrade() > _execGrade)
+		throw GradeTooLowException();
+
+	performAction();
 }
 
 Form::~Form() {}

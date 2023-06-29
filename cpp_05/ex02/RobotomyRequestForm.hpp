@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:13:33 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/28 18:28:51 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/29 16:08:03 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class RobotomyRequestForm : public Form {
 		~RobotomyRequestForm();
 		RobotomyRequestForm	&operator=(const RobotomyRequestForm &cpy);
 
-		virtual void	execute(Bureaucrat const &executor);
+		void	performAction() const;
 	private:
 		std::string _target;
 };

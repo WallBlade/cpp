@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:41:02 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/28 18:28:59 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/29 15:50:12 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,15 @@ class Form {
 				}
 		};
 
+		class FormNotSignedException : public std::exception {
+			public:
+				FormNotSignedException() throw() {}
+				~FormNotSignedException() throw() {}
+				const char *what() const throw() {
+					return "Form not signed";
+				}
+		};
+
 		void				setName(const std::string name);
 		void				setSignGrade(const int signGrade);
 		void				setExecGrade(const int execGrade);
@@ -51,7 +60,7 @@ class Form {
 		std::string			getName() const;
 		int					getSignGrade() const;
 		int					getExecGrade() const;
-		virtual void		beSigned(Bureaucrat &john) = 0;
+		void				beSigned(Bureaucrat &john);
 		virtual void		execute(Bureaucrat const &executor);
 		
 	private:
@@ -59,6 +68,7 @@ class Form {
 		bool				_isSigned;
 		const int			_signGrade;
 		const int			_execGrade;
+		virtual void		performAction() const = 0;
 };
 
 std::ostream& operator<<(std::ostream& os, const Form &form);

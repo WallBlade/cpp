@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 13:43:25 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/28 18:26:29 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/29 16:08:10 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &c
 	this->_target = cpy._target;
 }
 
-void	RobotomyRequestForm::execute(Bureaucrat const &executor) {
-	
+void	RobotomyRequestForm::performAction() const {
+	std::cout << "Makes some drilling noises..." << std::endl;
+    if (rand() % 2 == 0)
+        std::cout << _target << " has been robotomized successfully 50% of the time." << std::endl;
+    else
+        std::cout << "Robotomy failed." << std::endl;
 }

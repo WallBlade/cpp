@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:11:53 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/28 13:55:20 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/29 16:08:14 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,8 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPard
 	this->_target = cpy._target;
 }
 
-void	PresidentialPardonForm::execute(Bureaucrat const &executor) {
-	if (executor.getGrade() <= getExecGrade() && this->isSigned())
-		std::cout << "Presidential Pardon Form : " << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
-	else
-		throw GradeTooLowException();
+void	PresidentialPardonForm::performAction() const {
+	std::cout << "Presidential Pardon Form : " << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
