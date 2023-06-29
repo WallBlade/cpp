@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:41:02 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/27 15:07:03 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/28 18:28:59 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ class Form {
 		int					getSignGrade() const;
 		int					getExecGrade() const;
 		virtual void		beSigned(Bureaucrat &john) = 0;
+		virtual void		execute(Bureaucrat const &executor);
 		
 	private:
 		const std::string	_name;

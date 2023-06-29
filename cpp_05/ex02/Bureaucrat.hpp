@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:23:35 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/26 17:30:58 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/28 13:31:08 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define __BUREAUCRAT_HPP__
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class Form;
 

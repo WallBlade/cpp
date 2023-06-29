@@ -6,11 +6,11 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:41:23 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/27 15:07:22 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/06/28 18:30:38 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Form::Form() : _name("Default"), _isSigned(0), _signGrade(0), _execGrade(0) {
 	std::cout << "Form : default constructor called" << std::endl;
@@ -83,6 +83,10 @@ int			Form::getSignGrade() const {
 
 int			Form::getExecGrade() const {
 	return this->_execGrade;
+}
+
+void	Form::execute(Bureaucrat const &executor) {
+	
 }
 
 Form::~Form() {}
