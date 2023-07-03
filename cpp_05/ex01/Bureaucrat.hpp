@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:23:35 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/26 17:30:58 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/03 13:32:32 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,25 @@ class Form;
 
 class Bureaucrat {
 	public:
+		Bureaucrat();
 		Bureaucrat(const std::string &name, int grade);
+		Bureaucrat(const Bureaucrat &cpy);
+		Bureaucrat	&operator=(const Bureaucrat &cpy);
 		~Bureaucrat();
 		class GradeTooHighException : public std::exception {
 			public:
-				GradeTooHighException() throw() {}
-				~GradeTooHighException() throw() {}
 				const char *what() const throw() {
 					return "Grade is too high";
 				}
 		};
 		class GradeTooLowException : public std::exception {
 			public:
-				GradeTooLowException() throw() {}
-				~GradeTooLowException() throw() {}
 				const char *what() const throw() {
 					return "Grade is too low";
 				}
 		};
-		std::string			getName() const;
-		int					getGrade() const;
+		const std::string	&getName() const;
+		const int			&getGrade() const;
 		void				increaseGrade(int amount);
 		void				decreaseGrade(int amount);
 		void				signForm(Form &form);

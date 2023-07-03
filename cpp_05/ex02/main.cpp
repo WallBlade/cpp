@@ -6,12 +6,14 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:00:11 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/26 17:55:47 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/03 14:47:02 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main() {
 	std::cout << "----------------------------------------" << std::endl;
@@ -64,11 +66,30 @@ int main() {
 	
 	try {
 		Bureaucrat	mooman("Mooman", 50);
-		Form		petition("Petition", 46, 1);
-		mooman.increaseGrade(5);
-		petition.beSigned(mooman);
-		mooman.signForm(petition);
+		PresidentialPardonForm	president("petition");
 		std::cout << mooman << std::endl;
+		mooman.increaseGrade(45);
+		std::cout << mooman << std::endl;
+		president.beSigned(mooman);
+		mooman.signForm(president);
+		president.execute(mooman);
+	} catch (const std::exception &e) {
+		std::cout << "Exception caught : " << e.what() << std::endl;
+	}
+
+	std::cout << "----------------------------------------" << std::endl;
+	std::cout << std::endl;
+	std::cout << "----------------------------------------" << std::endl;
+
+	try {
+		Bureaucrat	nooman("Nooman", 50);
+		ShrubberyCreationForm	shrub("contract");
+		std::cout << nooman << std::endl;
+		nooman.decreaseGrade(50);
+		std::cout << nooman << std::endl;
+		shrub.beSigned(nooman);
+		nooman.signForm(shrub);
+		shrub.execute(nooman);
 	} catch (const std::exception &e) {
 		std::cout << "Exception caught : " << e.what() << std::endl;
 	}
@@ -76,18 +97,25 @@ int main() {
 	std::cout << "----------------------------------------" << std::endl;
 	std::cout << std::endl;
 	std::cout << "----------------------------------------" << std::endl;
-	
+
 	try {
-		Bureaucrat	booman("Booman", 42);
-		Form		petition("Contract", 20, 1);
-		booman.increaseGrade(12);
-		booman.signForm(petition);
-		petition.beSigned(booman);
-		std::cout << booman << std::endl;
+		Bureaucrat	zooman("Zooman", 145);
+		RobotomyRequestForm	robot("request");
+		std::cout << zooman << std::endl;
+		zooman.increaseGrade(100);
+		std::cout << zooman << std::endl;
+		robot.beSigned(zooman);
+		zooman.signForm(robot);
+		robot.execute(zooman);
+		robot.execute(zooman);
+		robot.execute(zooman);
+		robot.execute(zooman);
+		robot.execute(zooman);
 	} catch (const std::exception &e) {
 		std::cout << "Exception caught : " << e.what() << std::endl;
 	}
 	
 	std::cout << "----------------------------------------" << std::endl;
+	
 	return (0);
 }

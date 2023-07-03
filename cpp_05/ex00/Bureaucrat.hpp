@@ -5,7 +5,10 @@
 
 class Bureaucrat {
 	public:
+		Bureaucrat();
 		Bureaucrat(const std::string &name, int grade);
+		Bureaucrat(const Bureaucrat &cpy);
+		Bureaucrat	&operator=(const Bureaucrat &cpy);
 		~Bureaucrat();
 		class GradeTooHighException : public std::exception {
 			public:
@@ -19,8 +22,8 @@ class Bureaucrat {
 					return "Grade is too low";
 				}
 		};
-		std::string			getName() const;
-		int					getGrade() const;
+		const std::string	&getName() const;
+		const int			&getGrade() const;
 		void				increaseGrade(int amount);
 		void				decreaseGrade(int amount);
 	private:

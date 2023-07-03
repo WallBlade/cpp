@@ -6,11 +6,15 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 15:07:05 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/26 15:07:31 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/03 13:33:52 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {
+	std::cout << "Bureaucrat : " << _name << " has been created" << std::endl;
+}
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade) {
 	if (grade < 1)
@@ -19,12 +23,21 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade
 		throw GradeTooLowException();
 }
 
-std::string	Bureaucrat::getName() const {
-	return this->_name;
+Bureaucrat::Bureaucrat(const Bureaucrat &cpy) : _name(cpy._name), _grade(cpy._grade) {
 }
 
-int	Bureaucrat::getGrade() const {
-	return this->_grade;
+Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &cpy) {
+	if (this != &cpy)
+		this->_grade = cpy._grade;
+	return (*this);
+}
+
+const std::string	&Bureaucrat::getName() const {
+	return (this->_name);
+}
+
+const int	&Bureaucrat::getGrade() const {
+	return (this->_grade);
 }
 
 std::ostream	&operator<<(std::ostream &out, const Bureaucrat &bu) {
@@ -44,4 +57,6 @@ void	Bureaucrat::decreaseGrade(int amount) {
 		throw GradeTooLowException();
 }
 
-Bureaucrat::~Bureaucrat() {}
+Bureaucrat::~Bureaucrat() {
+	std::cout << "Default Bureaucrat destructor called" << std::endl;
+}

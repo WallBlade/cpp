@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:00:11 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/26 17:55:47 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/03 13:37:23 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,35 +58,35 @@ int main() {
 		std::cout << "Exception caught : " << e.what() << std::endl;
 	}
 	
-	std::cout << "----------------------------------------" << std::endl;
-	std::cout << std::endl;
-	std::cout << "----------------------------------------" << std::endl;
+	// std::cout << "----------------------------------------" << std::endl;
+	// std::cout << std::endl;
+	// std::cout << "----------------------------------------" << std::endl;
 	
-	try {
-		Bureaucrat	mooman("Mooman", 50);
-		Form		petition("Petition", 46, 1);
-		mooman.increaseGrade(5);
-		petition.beSigned(mooman);
-		mooman.signForm(petition);
-		std::cout << mooman << std::endl;
-	} catch (const std::exception &e) {
-		std::cout << "Exception caught : " << e.what() << std::endl;
-	}
+	// try {
+	// 	Bureaucrat	mooman("Mooman", 50);
+	// 	Form		petition("Petition", 46, 1);
+	// 	mooman.increaseGrade(5);
+	// 	petition.beSigned(mooman);
+	// 	mooman.signForm(petition);
+	// 	std::cout << mooman << std::endl;
+	// } catch (const std::exception &e) {
+	// 	std::cout << "Exception caught : " << e.what() << std::endl;
+	// }
 	
-	std::cout << "----------------------------------------" << std::endl;
-	std::cout << std::endl;
-	std::cout << "----------------------------------------" << std::endl;
+	// std::cout << "----------------------------------------" << std::endl;
+	// std::cout << std::endl;
+	// std::cout << "----------------------------------------" << std::endl;
 	
-	try {
-		Bureaucrat	booman("Booman", 42);
-		Form		petition("Contract", 20, 1);
-		booman.increaseGrade(12);
-		booman.signForm(petition);
-		petition.beSigned(booman);
-		std::cout << booman << std::endl;
-	} catch (const std::exception &e) {
-		std::cout << "Exception caught : " << e.what() << std::endl;
-	}
+	// try {
+	// 	Bureaucrat	booman("Booman", 42);
+	// 	Form		contract("Contract", 20, 1);
+	// 	booman.increaseGrade(12);
+	// 	booman.signForm(contract);
+	// 	contract.beSigned(booman);
+	// 	std::cout << booman << std::endl;
+	// } catch (const std::exception &e) {
+	// 	std::cout << "Exception caught : " << e.what() << std::endl;
+	// }
 	
 	std::cout << "----------------------------------------" << std::endl;
 	return (0);
