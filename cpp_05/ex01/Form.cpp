@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:41:23 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/06/26 17:50:56 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/03 18:06:41 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,10 @@ void		Form::beSigned(Bureaucrat &john) {
 		_isSigned = 1;
 	else
 		throw (Form::GradeTooLowException());
+}
+
+std::ostream	&operator<<(std::ostream& os, const Form &form) {
+	os << form.getName() << " form attributes :\n" << "is signed : " << form.isSigned() << "\nsign grade : " << form.getSignGrade() << "\nexec grade : " << form.getExecGrade() << std::endl;
 }
 
 Form::~Form() {}
