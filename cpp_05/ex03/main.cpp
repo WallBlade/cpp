@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:00:11 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/07/03 17:48:25 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/05 17:31:19 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,22 @@ int main() {
 	std::cout << std::endl;
 	std::cout << "----------------------------------------" << std::endl;
 
+	try {
+		Bureaucrat	pooman("Pooman", 145);
+		RobotomyRequestForm	robot("request");
+		std::cout << pooman << std::endl;
+		pooman.increaseGrade(100);
+		robot.beSigned(pooman);
+		pooman.signForm(robot);
+		pooman.executeForm(robot);
+	} catch (const std::exception &e) {
+		std::cout << "Exception caught : " << e.what() << std::endl;
+	}
+	
+	std::cout << "----------------------------------------" << std::endl;
+	std::cout << std::endl;
+	std::cout << "----------------------------------------" << std::endl;
+	
 	try {
 		Bureaucrat	vooman("Vooman", 1);
 		Intern		sooman;

@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:41:23 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/07/03 18:07:31 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/05 18:21:39 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void		Form::beSigned(Bureaucrat &john) {
 		throw (Form::GradeTooLowException());
 }
 
-void	Form::execute(Bureaucrat const &executor) {
+void	Form::execute(Bureaucrat const &executor) const {
 	if (!isSigned())
 		throw FormNotSignedException();
 	else if (executor.getGrade() > _execGrade)
@@ -101,8 +101,21 @@ void	Form::execute(Bureaucrat const &executor) {
 	performAction();
 }
 
+const char* Form::GradeTooHighException::what() const throw() {
+	return "Grade is too high";
+}
+
+const char* Form::GradeTooLowException::what() const throw() {
+	return "Grade is too low";
+}
+
+const char* Form::FormNotSignedException::what() const throw() {
+	return "Form not signed";
+}
+
 std::ostream	&operator<<(std::ostream& os, const Form &form) {
 	os << form.getName() << " form attributes :\n" << "is signed : " << form.isSigned() << "\nsign grade : " << form.getSignGrade() << "\nexec grade : " << form.getExecGrade() << std::endl;
+	return os;
 }
 
 Form::~Form() {}

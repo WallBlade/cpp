@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:41:02 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/07/03 13:57:02 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/05 18:16:57 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,17 @@ class Form {
 
 		class GradeTooHighException : public std::exception {
 			public:
-				const char *what() const throw() {
-					return "Grade too high";
-				}
+				const char *what() const throw();
 		};
 
 		class GradeTooLowException : public std::exception {
 			public:
-				const char *what() const throw() {
-					return "Grade too low";
-				}
+				const char *what() const throw();
 		};
 
 		class FormNotSignedException : public std::exception {
 			public:
-				const char *what() const throw() {
-					return "Form not signed";
-				}
+				const char *what() const throw();
 		};
 
 		void				setName(const std::string name);
@@ -55,7 +49,7 @@ class Form {
 		int					getSignGrade() const;
 		int					getExecGrade() const;
 		void				beSigned(Bureaucrat &john);
-		void				execute(Bureaucrat const &executor);
+		void				execute(Bureaucrat const &executor) const;
 		
 	private:
 		const std::string	_name;

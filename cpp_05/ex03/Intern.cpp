@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:48:26 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/07/03 17:41:54 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/05 18:06:09 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ Form	*Intern::makeForm(const std::string name, const std::string target) {
 	}
 	
 	return (NULL);
+}
+
+const char* Intern::BadInputException::what() const throw() {
+	return "Not a valid form name";
 }
 
 Intern::~Intern() {

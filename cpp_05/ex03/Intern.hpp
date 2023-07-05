@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:48:27 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/07/03 17:27:14 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/05 18:04:06 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ class Intern {
 		Intern &operator=(const Intern &cpy);
 		~Intern();
 		class BadInputException : public std::exception {
-			const char *what() const throw() {
-				return "Not a valid form name";
-			}
+			const char *what() const throw();
 		};
 
 		Form	*makeForm(const std::string name, const std::string target);
