@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 17:20:25 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/07/17 19:33:02 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/19 17:05:10 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,11 @@ class Span {
 		Span	&operator=(const Span &cpy);
 
 		class OutOfBoundsException : public std::exception {
-			const char *what() const throw() {
-				return "Span is full";
-			}
+			const char *what() const throw();
 		};
 		
 		class TooFewValuesException : public std::exception {
-			const char *what() const throw() {
-				return "Too few values in Span";
-			}
+			const char *what() const throw();
 		};
 
 		void	addRange(int start, int end);

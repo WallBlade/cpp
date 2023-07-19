@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 17:23:45 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/07/17 19:48:18 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/19 17:05:07 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,14 @@ void	Span::addRange(int start, int end) {
 		addNumber(start);
 		start++;
 	}
+}
+
+const char*	Span::OutOfBoundsException::what() const throw() {
+	return "Span is full";
+}
+
+const char*	Span::TooFewValuesException::what() const throw() {
+	return "Too few values in Span";
 }
 
 Span::~Span() {
