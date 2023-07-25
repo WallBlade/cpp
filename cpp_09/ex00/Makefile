@@ -3,12 +3,12 @@ CPPFLAGS		:=	-Wall -Werror -Wextra -std=c++98 -MMD -MP
 
 # Directories
 SRC_DIR			:=	.
-OBJ_DIR			:=	BitcoinExchange
+OBJ_DIR			:=	obj
 
 # Source files
 SRCS			:=	$(wildcard $(SRC_DIR)/*.cpp)
 OBJS			:=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
-TARGET			:=	MutantStack
+TARGET			:=	btc
 
 # Progress bar function
 define progress_bar
