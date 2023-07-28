@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 15:17:23 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/07/26 20:26:48 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/28 17:35:13 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		BitcoinExchange::isValidDate(std::string &date) {
 	if (dateStream.fail() || dash1 != '-' || dash2 != '-')
 		return (1);
 
-	return ((year >= 2009 && year <= 2022) &&
+	return ((year >= 2009 && year <= 2050) &&
 			(month >= 1 && month <= 12) &&
 			(day >= 1 && day <= 31));
 }
@@ -71,7 +71,7 @@ int		BitcoinExchange::isValidDate(std::string &date) {
 
 float	BitcoinExchange::parseInputLine(std::string &input) {
 	if (input.empty())
-		return (1);
+		return (-1);
 	std::istringstream	iss(input);
 	std::string	date, value_str;
 	std::getline(iss, date, '|');
@@ -82,17 +82,17 @@ float	BitcoinExchange::parseInputLine(std::string &input) {
 	float value;
 	if (!isValidDate(input)) {
 		std::cout << "Error: bad input => " << input << std::endl;
-		return (value = -1);
+		return (-1);
 	}
 	value_str.erase(0, value_str.find_first_not_of(" \t"));
 	value_str.erase(value_str.find_last_not_of(" \t") + 1);
 	std::istringstream(value_str) >> value;
 	if (value < 0) {
 		std::cout << "Error: not a positive number." << std::endl;
-		return (value = -1);
+		return (-1);
 	} else if (value > 1000) {
 		std::cout << "Error: too large a number." << std::endl;
-		return (value = -1);
+		return (-1);
 	}
 	return (value);
 }
