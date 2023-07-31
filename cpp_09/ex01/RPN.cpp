@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 15:17:32 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/07/30 17:01:05 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:17:56 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,55 @@
 
 RPN::RPN() {}
 
-RPN::RPN(const RPN &cpy) {}
+RPN::RPN(const RPN &cpy) : stk(cpy.stk) {}
+
+RPN::~RPN() {}
+
+RPN	&RPN::operator=(const RPN &cpy) {
+	stk = cpy.stk;
+	return *this;
+}
+
+bool	RPN::is_token(char c) {
+	return (c == '+' || c == '-' || c == '*' || c == '/');
+}
+
+int	RPN::process(std::string exp) {
+	for (size_t i = 0; i < exp.size(); i++) {
+		char token = exp[i];
+		if (token == ' ')
+			continue;
+		if (isdigit(token)) {
+			stk.push(token - '0');
+		} else if (is_token(token)) {
+			if (stk.size() < 2) {
+				std::cerr << "Error: insufficient values for operation." << std::endl;
+				return (-1);
+			}
+			int right = stk.top();
+			stk.pop();
+			int left = stk.top();
+			stk.pop();
+			if (token == '+') {
+				stk.push(left + right);
+			} else if (token == '-') {
+				stk.push(left - right);
+			} else if (token == '*') {
+				stk.push(left * right);
+			} else if (token == '/') {
+				if (right == 0 || left == 0) {
+					std::cerr << "Error: division by zero." << std::endl;
+					return (-1);
+				}
+				stk.push(left / right);
+			}
+			if (stk.size() != 1) {
+				return (0);
+			}
+		} else {
+			std::cerr << "Error: unexpected token '" << token << "'." << std::endl;
+			return (-1);
+		}
+	}
+	return (stk.top());
+}

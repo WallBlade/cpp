@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 15:17:34 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/07/30 17:00:39 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/07/31 17:38:51 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <stack>
+#include <string>
 
 class RPN {
 	public:
@@ -23,8 +24,11 @@ class RPN {
 		~RPN();
 
 		RPN	&operator=(const RPN &cpy);
+		
+		int		process(std::string exp);
+		bool	is_token(char c);
 	private:
-		std::stack<int> rpn;
+		std::stack<int> stk;
 };
 
 #endif
