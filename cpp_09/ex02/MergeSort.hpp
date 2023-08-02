@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/02 17:59:13 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/08/02 18:54:12 by zel-kass         ###   ########.fr       */
+/*   Created: 2023/07/23 15:17:42 by zel-kass          #+#    #+#             */
+/*   Updated: 2023/08/02 17:57:57 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,13 @@ class PmergeMe {
 
 		PmergeMe	&operator=(const PmergeMe &cpy);
 
-		void		fillContainers(int num);
-		
-		void		sortFordJohnson();
-		void		pairValues(std::vector<int> &mainChain, std::vector<int> &pendElems);
+		void	fillContainers(int num);
+
+		// void	sortFordJohnson();
+
+		// void	mergeSort(int left, int right);
+		// void	merge(int left, int mid, int right);
+		// void	insertionSort();
 
 		std::list<int>		lst;
 		std::vector<int>	vctr;

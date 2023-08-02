@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/23 15:17:40 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/07/31 23:19:54 by zel-kass         ###   ########.fr       */
+/*   Created: 2023/08/02 17:59:12 by zel-kass          #+#    #+#             */
+/*   Updated: 2023/08/02 18:54:06 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,63 +29,9 @@ void	PmergeMe::fillContainers(int num) {
 	vctr.push_back(num);
 }
 
-// void	PmergeMe::sortFordJohnson(std::list<int> &array) {
-// 	mergeSort()
-// }
-
 void	PmergeMe::sortFordJohnson() {
-	mergeSort(0, vctr.size() - 1);
+	std::vector<int> mainChain;
+	std::vector<int> pendElems;
 
-	std::cout << '\n';
-	std::cout << "Process: ";
-	for (size_t i = 0; i < vctr.size(); i++)
-		std::cout << vctr[i] << " ";
-	std::cout << '\n';
-
-	insertionSort();
-}
-
-void	PmergeMe::mergeSort(int left, int right) {
-	if (left >= right)
-		return;
-
-	int mid = left + (right - left) / 2;
-	mergeSort(left, mid);
-	mergeSort(mid + 1, right);
-	merge(left, mid, right);
-}
-
-void	PmergeMe::merge(int left, int mid, int right) {
-	std::vector<int> temp(right - left + 1);
-	int i = left;
-	int j = mid + 1;
-	int k = 0;
-
-	while (i <= mid && j <= right) {
-		if (vctr[i] <= vctr[j])
-			temp[k++] = vctr[i++];
-		else
-			temp[k++] = vctr[j++];
-	}
-
-	while (i <= mid)
-		temp[k++] = vctr[i++];
-	while (j <= right)
-		temp[k++] = vctr[j++];
-	for (i = left, k = 0; i <= right; ++i, ++k)
-		vctr[i] = temp[k];
-}
-
-void	PmergeMe::insertionSort() {
-	int n = vctr.size();
-	for (int i = 1; i < n; ++i) {
-		int key = vctr[i];
-		int j = i - 1;
-
-		while (j >= 0 && vctr[j] > key) {
-			vctr[j + 1] = vctr[j];
-			--j;
-		}
-		vctr[j + 1] = key;
-	}
+	pairValues(mainChain, pendElems, vctr.size() - 1);
 }
