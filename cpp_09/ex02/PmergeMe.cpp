@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 17:59:12 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/08/03 17:02:21 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/08/03 20:00:48 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ void	PmergeMe::fillContainers(int num) {
 }
 
 void	PmergeMe::sortFordJohnson() {
-
 	pairValues();
 	mergeMainChain();
-	// insertPending(mainChain, pendElems);
+	insertPending();
 }
 
 void	PmergeMe::pairValues() {
@@ -56,20 +55,58 @@ void	PmergeMe::pairValues() {
 		}
 		pairs.push_back(pair);
 	}
-	std::cout << "Pairs Before: ";
-	for (size_t i = 0; i < pairs.size(); ++i) {
-		std::cout << "(" << pairs[i].a << ", " << pairs[i].b << ") ";
-	}
-	std::cout << std::endl;
+	// std::cout << "Pairs Before: ";
+	// for (size_t i = 0; i < pairs.size(); ++i) {
+	// 	std::cout << "(" << pairs[i].a << ", " << pairs[i].b << ") ";
+	// }
+	// std::cout << std::endl;
 }
 
 void	PmergeMe::mergeMainChain() {
 	std::sort(pairs.begin(), pairs.end(), comparePairs);
-	std::cout << "Pairs After: ";
-	for (size_t i = 0; i < pairs.size(); ++i) {
-		std::cout << "(" << pairs[i].a << ", " << pairs[i].b << ") ";
+	// std::cout << "Pairs After: ";
+	// for (size_t i = 0; i < pairs.size(); ++i) {
+	// 	std::cout << "(" << pairs[i].a << ", " << pairs[i].b << ") ";
+	// }
+	// std::cout << std::endl;
+}
+
+int		PmergeMe::binarySearch(std::vector<int> &vctr, int value) {
+	int start = 0;
+	int end = vctr.size() - 1;
+
+	while (start <= end) {
+		int mid = start + (end - start) / 2;
+
+		if (vctr[mid] == value)
+			return mid;
+
+		if (vctr[mid] < value) {
+			start = mid + 1;
+		} else {
+			end = mid - 1;
+		}
 	}
-	std::cout << std::endl;
+	return start;
+}
+
+void	PmergeMe::insertPending() {
+	vctr.clear();
+
+	vctr.push_back(pairs[0].b);
+	vctr.push_back(pairs[0].a);
+
+	for (size_t i = 1; i < pairs.size(); i++) {
+		int pos = binarySearch(vctr, pairs[i].b);
+		vctr.insert(vctr.begin() + pos, pairs[i].b);
+
+		pos = binarySearch(vctr, pairs[i].a);
+		vctr.insert(vctr.begin() + pos, pairs[i].a);
+	}
+	// std::cout << "After:\n";
+	// for (size_t i = 0; i < vctr.size(); i++)
+	// 	std::cout << vctr[i] << " ";
+	// std::cout << std::endl;
 }
 
 bool	comparePairs(const PmergeMe::t_pair &pair1, const PmergeMe::t_pair &pair2) {

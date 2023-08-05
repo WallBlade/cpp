@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 17:59:13 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/08/03 17:00:35 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/08/03 19:30:32 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ class PmergeMe {
 		void		sortFordJohnson();
 		void		pairValues();
 		void		mergeMainChain();
-		// void		insertPending(std::vector<int> &mainChain, std::vector<int> &pendElems);
+		int			binarySearch(std::vector<int> &sortedValues, int value);
+		void		insertPending();
 
 		std::list<int>		lst;
 		std::vector<int>	vctr;
