@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 17:59:13 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/08/03 19:30:32 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/08/07 17:02:05 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <list>
+#include <deque>
 #include <ctime>
 #include <string>
 #include <stdlib.h>
@@ -31,14 +31,14 @@ class PmergeMe {
 
 		void		fillContainers(int num);
 		
-		void		sortFordJohnson();
-		void		pairValues();
-		void		mergeMainChain();
-		int			binarySearch(std::vector<int> &sortedValues, int value);
-		void		insertPending();
-
-		std::list<int>		lst;
-		std::vector<int>	vctr;
+		void		sortFordJohnson(std::vector<int> &vctr);
+		void		sortFordJohnson(std::deque<int> &deque);
+		void		pairValues(std::vector<int> &vctr);
+		void		pairValues(std::deque<int> &deque);
+		int			binarySearch(std::vector<int> &vctr, int value);
+		int			binarySearch(std::deque<int> &deque, int value);
+		void		insertPending(std::vector<int> &vctr);
+		void		insertPending(std::deque<int> &deque);
 
 		typedef struct s_pair {
 			int a;
@@ -46,6 +46,8 @@ class PmergeMe {
 		}			t_pair;
 		
 		std::vector<t_pair>	pairs;
+		bool				odd;
+		int					pending;
 };
 
 bool	comparePairs(const PmergeMe::t_pair &pair1, const PmergeMe::t_pair &pair2);

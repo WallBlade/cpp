@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 15:17:37 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/08/03 19:59:36 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/08/07 18:37:13 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int main(int ac, char **av) {
 	}
 	
 	PmergeMe fdj;
+	PmergeMe bns;
+	std::vector<int>	vctr;
+	std::deque<int>		deque;
 
 	for (int i = 1; i < ac; i++) {
 		for (int j = 0; av[i][j]; j++) {
@@ -32,27 +35,47 @@ int main(int ac, char **av) {
 			std::cerr << "Error: bad input.\n";
 			return (1);
 		}
-		fdj.fillContainers(num);
+		deque.push_back(num);
+		vctr.push_back(num);
 	}
 	
-	std::cout << "Before: ";
-	for (size_t i = 0; i < fdj.vctr.size(); i++)
-		std::cout << fdj.vctr[i] << " ";
+	std::cout << '\n';
+	std::cout << "Before:	";
+	for (size_t i = 0; i < vctr.size(); i++)
+		std::cout << vctr[i] << " ";
 	std::cout << '\n';
 
-	// fdj.sortFordJohnson();
-
 	clock_t start = std::clock();
-	fdj.sortFordJohnson();
+	fdj.sortFordJohnson(vctr);
 	clock_t end = std::clock();
 	double time_vector = 1000000.0 * (end - start) / CLOCKS_PER_SEC;
 	std::cout << '\n';
 
-	std::cout << "After: ";
-	for (size_t i = 0; i < fdj.vctr.size(); i++)
-		std::cout << fdj.vctr[i] << " ";
+	std::cout << "After:	";
+	for (size_t i = 0; i < vctr.size(); i++)
+		std::cout << vctr[i] << " ";
 	std::cout << '\n';
-	std::cout << "Time to process a range of " << fdj.vctr.size() << " elements with std::vector : " << time_vector << " us\n";
+	std::cout << '\n';
+	std::cout << "Time to process a range of " << vctr.size() << " elements with std::vector : " << time_vector << " us\n";
+
+	std::cout << '\n';
+	std::cout << "Before:	";
+	for (size_t i = 0; i < deque.size(); i++)
+		std::cout << deque[i] << " ";
+	std::cout << '\n';
+
+	start = std::clock();
+	bns.sortFordJohnson(deque);
+	end = std::clock();
+	time_vector = 1000000.0 * (end - start) / CLOCKS_PER_SEC;
+	std::cout << '\n';
+
+	std::cout << "After:	";
+	for (size_t i = 0; i < deque.size(); i++)
+		std::cout << deque[i] << " ";
+	std::cout << '\n';
+	std::cout << '\n';
+	std::cout << "Time to process a range of " << deque.size() << " elements with std::deque : " << time_vector << " us\n";
 
 	return (0);
 }

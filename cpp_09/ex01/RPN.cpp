@@ -6,7 +6,7 @@
 /*   By: zel-kass <zel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 15:17:32 by zel-kass          #+#    #+#             */
-/*   Updated: 2023/07/31 18:17:56 by zel-kass         ###   ########.fr       */
+/*   Updated: 2023/08/07 15:03:26 by zel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	RPN::process(std::string exp) {
 			} else if (token == '*') {
 				stk.push(left * right);
 			} else if (token == '/') {
-				if (right == 0 || left == 0) {
+				if (right == 0) {
 					std::cerr << "Error: division by zero." << std::endl;
 					return (-1);
 				}
